@@ -1,14 +1,30 @@
 
+// Desestructuración
+// Asignación Desestructurante
 
-// Arreglos en JS
-//const arreglo = new Array(100);
-const arreglo = [1,2,3,4];
-//arreglo.push(1);
-//arreglo.push(2);
-//arreglo.push(3);
-//arreglo.push(4);
+const persona = {
+    nombre: 'German',
+    edad: 24,
+    clave: '2025'
+};
 
-let arreglo2 = arreglo;
-arreglo2.push(5);
 
-console.log(arreglo);
+//const {nombre, edad, clave} = persona;
+
+//console.log(nombre);
+//console.log(edad);
+//console.log(clave);
+
+const useContext = ({clave, nombre, edad, rango = 'Capitán'}) => {
+
+    //console.log(nombre, edad, rango);
+
+    return {
+        nombreClave: clave,
+        anios: edad
+    }
+}
+
+const avenger = useContext(persona);
+
+console.log(avenger);
