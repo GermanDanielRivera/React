@@ -1,30 +1,39 @@
+import { getHeroeById } from "./bases/08-imp-exp";
 
-// Desestructuración
-// Asignación Desestructurante
+/*const promesa = new Promise( (resolve, reject) => {
 
-const persona = {
-    nombre: 'German',
-    edad: 24,
-    clave: '2025'
-};
+    setTimeout( () => {
+        // Tarea
+        // Importar el 
+        const p1 = getHeroeById(2);
+        resolve(p1);
+        //reject('No se pudo encontrar el heroe')
+    }, 2000)
+});
 
+promesa.then( (heroe) => {
+    console.log('heroe', heroe);
+})
+.catch(err => console.warn(err));*/
 
-//const {nombre, edad, clave} = persona;
+const getHeroeByIdAsync = (id) => {
+    
+    return new Promise( (resolve, reject) => {
 
-//console.log(nombre);
-//console.log(edad);
-//console.log(clave);
-
-const useContext = ({clave, nombre, edad, rango = 'Capitán'}) => {
-
-    //console.log(nombre, edad, rango);
-
-    return {
-        nombreClave: clave,
-        anios: edad
-    }
+        setTimeout( () => {
+            // Tarea
+            // Importar el 
+            const p1 = getHeroeById(id);
+            if(p1){
+                resolve(p1);
+            }else{
+                reject('No se pudo encontrar el heroe');
+            }
+        }, 2000)
+    });
 }
 
-const avenger = useContext(persona);
-
-console.log(avenger);
+getHeroeByIdAsync(10).then(heroe => {
+    console.log('Heroe', heroe)
+})//?? catch???
+.catch(err => console.warn(err));
